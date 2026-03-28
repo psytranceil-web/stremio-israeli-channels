@@ -1,25 +1,21 @@
 "use strict";
 
 /**
- * ISRAELI_CHANNELS – רשימת ערוצים ישראלים עם קישורי m3u8 אמיתיים
+ * channels.js – ערוצים ישראלים עם URLים מאומתים
  *
- * מקורות:
- *  - ערוצי כאן:   kan.org.il (רשמי, ציבורי)
- *  - רשת 13:      cloudfront CDN (ציבורי)
- *  - i24 NEWS:    Brightcove / Akamai (ציבורי)
- *  - GuruTV:      הוסף ידנית – ראה הערות
+ * ✅ = נבדק ועובד
+ * ⏳ = ממתין לקישור מ-GuruTv.online
  *
  * כיצד להוסיף ערוץ מ-GuruTv.online:
- *   1. פתח gurutv.online → לחץ F12 → Network → סנן m3u8
- *   2. לחץ Play על ערוץ → העתק URL
- *   3. הוסף ל-streams של הערוץ הרצוי
+ *   1. gurutv.online → F12 → Network → סנן m3u8
+ *   2. לחץ Play → העתק URL → הדבק כאן
  */
 
 const CHANNELS = [
 
-  // ══════════════════════════════════════════════════════════════
-  //  ערוצי כאן – ציבוריים, חינמיים, 100% רשמיים
-  // ══════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════
+  //  ✅ ערוצי כאן – דרך CDN של kancdn.medonecdn.net
+  // ════════════════════════════════════════════════
 
   {
     id: "il-kan11",
@@ -28,30 +24,114 @@ const CHANNELS = [
     genre: ["כללי"],
     streams: [
       {
-        url: "https://kan11w.media.kan.org.il/hls/live/2105694/2105694/master.m3u8",
-        label: "כאן 11 – Live (ראשי)",
-        quality: "HD",
-      },
-      {
-        url: "https://kan11.media.kan.org.il/hls/live/2024514/2024514/master.m3u8",
-        label: "כאן 11 – Live (גיבוי)",
+        url: "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/kan11/live.livx/playlist.m3u8",
+        label: "כאן 11 – Live HD",
         quality: "HD",
       },
     ],
   },
 
   {
-    id: "il-kan12",
-    name: "כאן 12",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Kan_12_Logo.svg/512px-Kan_12_Logo.svg.png",
-    genre: ["כללי"],
+    id: "il-makan33",
+    name: "מכאן 33",
+    logo: "https://upload.wikimedia.org/wikipedia/en/5/56/MeKan_33_logo_2017.png",
+    genre: ["כללי", "ערבית"],
     streams: [
       {
-        url: "https://kan12.media.kan.org.il/hls/live/2024515/2024515/master.m3u8",
-        label: "כאן 12 – Live",
+        url: "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/makan/live.livx/playlist.m3u8",
+        label: "מכאן 33 – Live HD",
         quality: "HD",
       },
     ],
+  },
+
+  // ════════════════════════════════════════════════
+  //  ✅ רשת 13 – Cloudfront CDN
+  // ════════════════════════════════════════════════
+
+  {
+    id: "il-reshet13",
+    name: "רשת 13",
+    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/1/17/Reshet13Logo2022.svg/559px-Reshet13Logo2022.svg.png",
+    genre: ["כללי"],
+    streams: [
+      {
+        url: "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8",
+        label: "רשת 13 – Live HD",
+        quality: "HD",
+      },
+    ],
+  },
+
+  // ════════════════════════════════════════════════
+  //  ✅ Hala TV
+  // ════════════════════════════════════════════════
+
+  {
+    id: "il-halatv",
+    name: "Hala TV הלא",
+    logo: "https://i.imgur.com/028M4Ew.png",
+    genre: ["ערבית"],
+    streams: [
+      {
+        url: "https://stream.panet.com/edge/halaTV/playlist.m3u8",
+        label: "Hala TV – Live",
+        quality: "HD",
+      },
+    ],
+  },
+
+  // ════════════════════════════════════════════════
+  //  ✅ Hidabroot
+  // ════════════════════════════════════════════════
+
+  {
+    id: "il-hidabroot",
+    name: "הידברות",
+    logo: "https://i.imgur.com/CTH4Hu2.png",
+    genre: ["דתי"],
+    streams: [
+      {
+        url: "https://cdn.cybercdn.live/HidabrootIL/Live97/playlist.m3u8",
+        label: "הידברות – Live",
+        quality: "HD",
+      },
+    ],
+  },
+
+  // ════════════════════════════════════════════════
+  //  ✅ Shelanu TV
+  // ════════════════════════════════════════════════
+
+  {
+    id: "il-shelanu",
+    name: "Shelanu TV שלנו",
+    logo: "https://i.imgur.com/UVz2Ojq.png",
+    genre: ["דתי"],
+    streams: [
+      {
+        url: "https://1247634592.rsc.cdn77.org/1247634592/playlist.m3u8",
+        label: "Shelanu TV – Live",
+        quality: "HD",
+      },
+    ],
+  },
+
+
+  // ════════════════════════════════════════════════
+  //  ⏳ ממתין לקישורים מ-GuruTv.online
+  //     פתח gurutv.online → F12 → Network → m3u8
+  // ════════════════════════════════════════════════
+
+  {
+    id: "il-kan12",
+    name: "כאן 12",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/512px-Keshet12_2018.svg.png",
+    genre: ["כללי"],
+    streams: [
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "כאן 12 – GuruTV", quality: "HD" },
+    ],
+    placeholder: true,
   },
 
   {
@@ -60,102 +140,10 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Kan_13_Logo.svg/512px-Kan_13_Logo.svg.png",
     genre: ["כללי", "ילדים"],
     streams: [
-      {
-        url: "https://kan13.media.kan.org.il/hls/live/2024516/2024516/master.m3u8",
-        label: "כאן 13 – Live",
-        quality: "HD",
-      },
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "כאן 13 – GuruTV", quality: "HD" },
     ],
+    placeholder: true,
   },
-
-  {
-    id: "il-kan-educational",
-    name: "כאן חינוכית",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/KanHinuchit.svg/512px-KanHinuchit.svg.png",
-    genre: ["ילדים", "חינוך"],
-    streams: [
-      {
-        url: "https://kan23.media.kan.org.il/hls/live/2024691/2024691/master.m3u8",
-        label: "כאן חינוכית – Live",
-        quality: "HD",
-      },
-    ],
-  },
-
-  {
-    id: "il-kan-news",
-    name: "כאן חדשות",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kan11Logo.svg/512px-Kan11Logo.svg.png",
-    genre: ["חדשות"],
-    streams: [
-      {
-        url: "https://kannews.media.kan.org.il/hls/live/2024517/2024517/master.m3u8",
-        label: "כאן חדשות – Live",
-        quality: "HD",
-      },
-    ],
-  },
-
-
-  // ══════════════════════════════════════════════════════════════
-  //  ערוץ 13 (רשת) – Cloudfront CDN, ציבורי
-  // ══════════════════════════════════════════════════════════════
-
-  {
-    id: "il-reshet13",
-    name: "רשת 13",
-    logo: "https://i.imgur.com/eFM3bTq.png",
-    genre: ["כללי"],
-    streams: [
-      {
-        url: "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8",
-        label: "רשת 13 – Live",
-        quality: "HD",
-      },
-    ],
-  },
-
-  // ══════════════════════════════════════════════════════════════
-  //  i24 NEWS – Brightcove / Akamai, ציבורי, בינלאומי
-  // ══════════════════════════════════════════════════════════════
-
-  {
-    id: "il-i24-heb",
-    name: "i24 NEWS עברית",
-    logo: "https://www.i24news.tv/images/favicon.png",
-    genre: ["חדשות"],
-    streams: [
-      {
-        url: "https://bcovlive-a.akamaihd.net/d89ede8094c741b7924120b27764153c/eu-central-1/5377161796001/profile_0/chunklist.m3u8",
-        label: "i24 עברית – Live (ראשי)",
-        quality: "HD",
-      },
-      {
-        url: "https://bcovlive-a.akamaihd.net/d89ede8094c741b7924120b27764153c/eu-central-1/5377161796001/playlist.m3u8",
-        label: "i24 עברית – Live (גיבוי)",
-        quality: "HD",
-      },
-    ],
-  },
-
-  {
-    id: "il-i24-eng",
-    name: "i24 NEWS English",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/LOGO_i24NEWS.png/512px-LOGO_i24NEWS.png",
-    genre: ["חדשות"],
-    streams: [
-      {
-        url: "https://bcovlive-a.akamaihd.net/ecf224f43f3b43e69471a7b626481af0/eu-central-1/5377161796001/playlist.m3u8",
-        label: "i24 English – Live",
-        quality: "HD",
-      },
-    ],
-  },
-
-  // ══════════════════════════════════════════════════════════════
-  //  ערוצים מסחריים – ממתינים לקישורי GuruTv.online
-  //  הורה הערה (#) והכנס את ה-URL שתוציא מ-F12
-  // ══════════════════════════════════════════════════════════════
 
   {
     id: "il-keshet12",
@@ -163,11 +151,7 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/he/thumb/3/36/Keshet12_logo.svg/512px-Keshet12_logo.svg.png",
     genre: ["כללי"],
     streams: [
-      // {
-      //   url: "https://PASTE-GURUTV-URL-HERE.m3u8",
-      //   label: "קשת 12 – GuruTV",
-      //   quality: "HD",
-      // },
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "קשת 12 – GuruTV", quality: "HD" },
     ],
     placeholder: true,
   },
@@ -178,55 +162,53 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/he/thumb/5/5e/Sport5_logo_2019.svg/512px-Sport5_logo_2019.svg.png",
     genre: ["ספורט"],
     streams: [
-      // {
-      //   url: "https://PASTE-GURUTV-URL-HERE.m3u8",
-      //   label: "ספורט 5 – GuruTV",
-      //   quality: "HD",
-      // },
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "ספורט 5 – GuruTV", quality: "HD" },
     ],
     placeholder: true,
   },
 
   {
-    id: "il-hot3",
-    name: "HOT 3",
-    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/5/5e/HOT3_logo.svg/512px-HOT3_logo.svg.png",
-    genre: ["כללי"],
-    streams: [],
+    id: "il-now14",
+    name: "ערוץ 14",
+    logo: "https://i.imgur.com/Iq2Kb69.png",
+    genre: ["חדשות", "כללי"],
+    streams: [
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "ערוץ 14 – GuruTV", quality: "HD" },
+    ],
+    placeholder: true,
+  },
+
+  {
+    id: "il-i24-heb",
+    name: "i24 NEWS עברית",
+    logo: "https://www.i24news.tv/images/favicon.png",
+    genre: ["חדשות"],
+    streams: [
+      // { url: "https://PASTE-URL-FROM-GURUTV.m3u8", label: "i24 עברית – GuruTV", quality: "HD" },
+    ],
     placeholder: true,
   },
 
 ];
 
+// ── Helper functions ─────────────────────────────────────────────────────────
 
-// ── Helper functions ──────────────────────────────────────────────────────────
-
-/** רק ערוצים עם סטרים פעיל */
 function getActiveChannels() {
   return CHANNELS.filter((ch) => ch.streams && ch.streams.length > 0);
 }
 
-/** כל הערוצים כולל placeholders */
 function getAllChannels() {
   return CHANNELS;
 }
 
-/** חיפוש לפי ID */
 function getChannelById(id) {
   return CHANNELS.find((ch) => ch.id === id) || null;
 }
 
-/** כל הז'אנרים הייחודיים */
 function getAllGenres() {
   const genres = new Set();
   CHANNELS.forEach((ch) => (ch.genre || []).forEach((g) => genres.add(g)));
   return Array.from(genres).sort();
 }
 
-module.exports = {
-  CHANNELS,
-  getActiveChannels,
-  getAllChannels,
-  getChannelById,
-  getAllGenres,
-};
+module.exports = { CHANNELS, getActiveChannels, getAllChannels, getChannelById, getAllGenres };
