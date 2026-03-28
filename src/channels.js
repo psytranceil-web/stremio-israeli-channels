@@ -97,9 +97,21 @@ const CHANNELS = [
   },
 
   // ════════════════════════════════════════
-  //  האח הגדול → הוסר (זה קשת 12 רגיל)
-  //  קשת 12 כבר מופיע למעלה עם הstream הנכון
+  //  האח הגדול ✅ – 13+ Live
   // ════════════════════════════════════════
+  {
+    id: "il-big-brother",
+    name: "האח הגדול 🏠 13+",
+    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/1/17/Reshet13Logo2022.svg/200px-Reshet13Logo2022.svg.png",
+    genre: ["בידור", "ריאליטי"],
+    streams: [
+      {
+        url: "https://d3snfszc9pg25z.cloudfront.net/media/e1739115-9182-4adc-8d19-8eb7fb6fdd3a/master.m3u8",
+        label: "האח הגדול 13+ – Live",
+        quality: "HD",
+      },
+    ],
+  },
 
   // ════════════════════════════════════════
   //  Walla News ✅
