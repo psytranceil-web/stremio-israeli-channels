@@ -182,8 +182,18 @@ const CHANNELS = [
     name: "ערוץ 14",
     logo: "https://upload.wikimedia.org/wikipedia/he/thumb/d/d4/Channel_14_Israel_logo.svg/200px-Channel_14_Israel_logo.svg.png",
     genre: ["חדשות", "כללי"],
-    streams: [],
-    placeholder: true, // חסום — נדרש URL מ-gurutv.online
+    streams: [
+      {
+        url: "https://r.il.cdn-redge.media/livehls/oil/ch14/live/ch14/live.livx/playlist.m3u8",
+        label: "ערוץ 14 – Live HD (ראשי)",
+        quality: "HD",
+      },
+      {
+        url: "https://ch14channel14-cdn.encoders.immergo.tv/2/streamPlaylist.m3u8",
+        label: "ערוץ 14 – Live (גיבוי)",
+        quality: "HD",
+      },
+    ],
   },
   {
     id: "il-i24-heb",
