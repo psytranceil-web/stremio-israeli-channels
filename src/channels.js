@@ -51,7 +51,7 @@ const CHANNELS = [
   },
 
   // ════════════════════════════════════════
-  //  רשת 13 ✅
+  //  רשת 13 ✅ (3 URLs גיבוי)
   // ════════════════════════════════════════
   {
     id: "il-reshet13",
@@ -59,11 +59,9 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Reshet_13_logo.svg/200px-Reshet_13_logo.svg.png",
     genre: ["כללי"],
     streams: [
-      {
-        url: "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8",
-        label: "רשת 13 – Live HD",
-        quality: "HD",
-      },
+      { url: "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8", label: "רשת 13 – Live HD", quality: "HD" },
+      { url: "https://d18b0e6mopany4.cloudfront.net/out/v1/2f2bc414a3db4698a8e94b89eaf2da2a/index.m3u8", label: "רשת 13 – Live HD (גיבוי 1)", quality: "HD" },
+      { url: "https://d198ztbnlup2iq.cloudfront.net/out/v1/2d9050c90fb94df8b78d1d98306a1a65/index.m3u8", label: "רשת 13 – Live HD (גיבוי 2)", quality: "HD" },
     ],
   },
 
@@ -76,11 +74,56 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/en/5/56/MeKan_33_logo_2017.png",
     genre: ["כללי", "ערבית"],
     streams: [
+      { url: "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/makan/live.livx/playlist.m3u8", label: "מכאן 33 – Live HD", quality: "HD" },
+    ],
+  },
+
+  // ════════════════════════════════════════
+  //  מכאן 24 ✅ (חדשות)
+  // ════════════════════════════════════════
+  {
+    id: "il-mako24",
+    name: "ערוץ 24",
+    logo: "https://i.ibb.co/7nYM8MK/arutz24tvtrp.png",
+    genre: ["חדשות"],
+    streams: [
       {
-        url: "https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/makan/live.livx/playlist.m3u8",
-        label: "מכאן 33 – Live HD",
+        url: "https://mako-streaming.akamaized.net/direct/hls/live/2035340/ch24live/video_10801920_p_1.m3u8",
+        label: "ערוץ 24 – Live HD",
         quality: "HD",
+        headers: { "Referer": "https://www.mako.co.il/", "Origin": "https://www.mako.co.il" },
       },
+    ],
+  },
+
+  // ════════════════════════════════════════
+  //  האח הגדול ✅ (קשת 12 ישיר)
+  // ════════════════════════════════════════
+  {
+    id: "il-big-brother",
+    name: "האח הגדול 🏠",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Keshet12_Logo.svg/200px-Keshet12_Logo.svg.png",
+    genre: ["בידור", "ריאליטי"],
+    streams: [
+      {
+        url: "https://mako-streaming.akamaized.net/n12/hls/live/2041434/n12_b/index.m3u8",
+        label: "האח הגדול – קשת 12 Live",
+        quality: "HD",
+        headers: { "Referer": "https://www.mako.co.il/", "Origin": "https://www.mako.co.il" },
+      },
+    ],
+  },
+
+  // ════════════════════════════════════════
+  //  Walla News ✅
+  // ════════════════════════════════════════
+  {
+    id: "il-walla-news",
+    name: "Walla! חדשות",
+    logo: "https://i.ibb.co/jzRyjBn/walla.png",
+    genre: ["חדשות"],
+    streams: [
+      { url: "https://d2dffl3588mvfk.cloudfront.net/out/v1/d8e15050ca4148aab0ee387a5e2eb46b/index.m3u8", label: "Walla News – Live", quality: "HD" },
     ],
   },
 
@@ -169,7 +212,7 @@ const CHANNELS = [
     logo: "https://www.i24news.tv/images/favicon.png",
     genre: ["חדשות"],
     streams: [],
-    placeholder: true,
+    placeholder: true, // דורש token מתחדש – הוסף URL מ-gurutv.online
   },
   {
     id: "il-sport5",
