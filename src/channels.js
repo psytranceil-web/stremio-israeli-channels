@@ -211,8 +211,16 @@ const CHANNELS = [
     name: "i24 NEWS עברית",
     logo: "https://www.i24news.tv/images/favicon.png",
     genre: ["חדשות"],
-    streams: [],
-    placeholder: true, // דורש token מתחדש – הוסף URL מ-gurutv.online
+    streams: [], // נטען דינמית ב-api/index.js
+    placeholder: false,
+  },
+  {
+    id: "il-i24-eng",
+    name: "i24 NEWS English",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/LOGO_i24NEWS.png/200px-LOGO_i24NEWS.png",
+    genre: ["חדשות"],
+    streams: [], // נטען דינמית ב-api/index.js
+    placeholder: false,
   },
   {
     id: "il-sport5",
