@@ -106,8 +106,8 @@ const CHANNELS = [
     genre: ["בידור", "ריאליטי"],
     streams: [
       {
-        url: "https://d3snfszc9pg25z.cloudfront.net/media/e1739115-9182-4adc-8d19-8eb7fb6fdd3a/master.m3u8",
-        label: "האח הגדול 13+ – Live",
+        url: "https://d3snfszc9pg25z.cloudfront.net/out/v1/11329fc2b33a4eca9a2d715c652aa167/indexsource_1.m3u8",
+        label: "האח הגדול 13+ – Live ישיר",
         quality: "HD",
       },
     ],
