@@ -97,22 +97,9 @@ const CHANNELS = [
   },
 
   // ════════════════════════════════════════
-  //  האח הגדול ✅ (קשת 12 ישיר)
+  //  האח הגדול → הוסר (זה קשת 12 רגיל)
+  //  קשת 12 כבר מופיע למעלה עם הstream הנכון
   // ════════════════════════════════════════
-  {
-    id: "il-big-brother",
-    name: "האח הגדול 🏠",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Keshet12_Logo.svg/200px-Keshet12_Logo.svg.png",
-    genre: ["בידור", "ריאליטי"],
-    streams: [
-      {
-        url: "https://mako-streaming.akamaized.net/n12/hls/live/2041434/n12_b/index.m3u8",
-        label: "האח הגדול – קשת 12 Live",
-        quality: "HD",
-        headers: { "Referer": "https://www.mako.co.il/", "Origin": "https://www.mako.co.il" },
-      },
-    ],
-  },
 
   // ════════════════════════════════════════
   //  Walla News ✅
@@ -196,31 +183,23 @@ const CHANNELS = [
     logo: "https://upload.wikimedia.org/wikipedia/he/thumb/d/d4/Channel_14_Israel_logo.svg/200px-Channel_14_Israel_logo.svg.png",
     genre: ["חדשות", "כללי"],
     streams: [],
-    placeholder: true,
-  },
-  {
-    id: "il-knesset",
-    name: "ערוץ הכנסת",
-    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/4/4b/Knesset_Channel_logo.svg/200px-Knesset_Channel_logo.svg.png",
-    genre: ["חדשות"],
-    streams: [],
-    placeholder: true,
+    placeholder: true, // חסום — נדרש URL מ-gurutv.online
   },
   {
     id: "il-i24-heb",
     name: "i24 NEWS עברית",
     logo: "https://www.i24news.tv/images/favicon.png",
     genre: ["חדשות"],
-    streams: [], // נטען דינמית ב-api/index.js
-    placeholder: false,
+    streams: [],
+    placeholder: true, // חסום — Brightcove DRM
   },
   {
     id: "il-i24-eng",
     name: "i24 NEWS English",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/LOGO_i24NEWS.png/200px-LOGO_i24NEWS.png",
     genre: ["חדשות"],
-    streams: [], // נטען דינמית ב-api/index.js
-    placeholder: false,
+    streams: [],
+    placeholder: true, // חסום — Brightcove DRM
   },
   {
     id: "il-sport5",
