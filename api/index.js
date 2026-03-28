@@ -29,12 +29,20 @@ function fetchUrl(url) {
 
 // ── i24 NEWS – YouTube Live stream fetcher ───────────────────────────────────
 // YouTube Live של i24 מחזיר HLS manifest ציבורי שמתחדש אוטומטית
+// Video IDs ידועים – fallback אם YouTube חוסם את הסריקה
+const I24_KNOWN_IDS = {
+  he: "FUlDpBf_F7k",
+  en: "dQWDGmmEVMw",
+};
+
 async function getI24Streams(lang) {
   const streams = [];
   try {
-    const handle = lang === "he" ? "@i24NEWS_HE" : "@i24news";
+    // Hebrew: @i24NEWS_HE | English: /i24news (ללא @)
+    const handle = lang === "he" ? "@i24NEWS_HE" : "i24news";
     const livePage = await fetchUrl(`https://www.youtube.com/${handle}/live`);
-    const videoId = livePage.body.match(/"videoId":"([a-zA-Z0-9_-]{11})"/)?.[1];
+    const videoId = livePage.body.match(/"videoId":"([a-zA-Z0-9_-]{11})"/)?.[1]
+      || I24_KNOWN_IDS[lang]; // fallback אם YouTube חוסם
 
     if (videoId) {
       const watchPage = await fetchUrl(`https://www.youtube.com/watch?v=${videoId}`);
