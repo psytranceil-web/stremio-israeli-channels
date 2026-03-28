@@ -56,7 +56,8 @@ function streamHandler({ type, id }) {
     name: s.label || ch.name,
     title: `📺 ${s.label || ch.name}${s.quality ? ` [${s.quality}]` : ""}`,
     url: s.url,
-    behaviorHints: { notWebReady: false },
+    // headers עבור ערוצים שדורשים Referer/Origin (קשת 12 וכו')
+    ...(s.headers ? { behaviorHints: { notWebReady: false, headers: s.headers } } : { behaviorHints: { notWebReady: false } }),
   }));
   return Promise.resolve({ streams });
 }
