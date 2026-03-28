@@ -5,6 +5,31 @@ const https = require("https");
 const { buildManifest } = require("../src/manifest");
 const { catalogHandler, metaHandler, streamHandler } = require("../src/handlers");
 
+// ── GuruTV i24 scraper – שולף URL חי עם token מ-GuruTV ─────────────────────
+function getI24FromGuruTV() {
+  return new Promise((resolve) => {
+    const req = https.request("https://gurutv.online/chi24news.html", {
+      timeout: 8000,
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://gurutv.online/"
+      }
+    }, (res) => {
+      let body = "";
+      res.on("data", c => body += c);
+      res.on("end", () => {
+        // חפש את ה-Fastly/Brightcove URL עם token
+        const match = body.match(/https:\/\/fastly\.live\.brightcove\.com\/[^\s"'<>\\]+playlist-hls\.m3u8[^\s"'<>\\]*/);
+        if (match) resolve(match[0]);
+        else resolve(null);
+      });
+    });
+    req.on("error", () => resolve(null));
+    req.on("timeout", () => { req.destroy(); resolve(null); });
+    req.end();
+  });
+}
+
 // ── Univtec API helper – שולף stream URL חי ────────────────────────────────
 function univtecStream(apiBase, guid, type, tenant) {
   return new Promise((resolve) => {
@@ -77,6 +102,14 @@ module.exports = async (req, res) => {
     if (streamMatch) {
       const [, type, id] = streamMatch;
       let result = await streamHandler({ type, id });
+
+      // i24 עברית – שלוף URL חי עם token מ-GuruTV
+      if (id === "il-i24-heb" && result.streams.length === 0) {
+        const i24url = await getI24FromGuruTV();
+        if (i24url) {
+          result = { streams: [{ name: "i24 NEWS עברית", title: "📺 i24 NEWS עברית [Live HD]", url: i24url, behaviorHints: { notWebReady: false } }] };
+        }
+      }
 
       // ערוץ 14 – נסה לשלוף URL חי מ-Univtec API (גיבוי לסטרים הקבועים)
       if (id === "il-now14" && result.streams.length === 0) {

@@ -200,8 +200,8 @@ const CHANNELS = [
     name: "i24 NEWS עברית",
     logo: "https://www.i24news.tv/images/favicon.png",
     genre: ["חדשות"],
-    streams: [],
-    placeholder: true, // חסום — Brightcove DRM
+    streams: [], // נטען דינמית מ-GuruTV
+    placeholder: false,
   },
   {
     id: "il-i24-eng",
