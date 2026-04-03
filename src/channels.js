@@ -17,7 +17,7 @@ const CHANNELS = [
   {
     id: "il-kan11",
     name: "כאן 11",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Kan_11_logo.svg/200px-Kan_11_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/Kan%2011.png",
     genre: ["כללי"],
     streams: [
       {
@@ -35,7 +35,7 @@ const CHANNELS = [
   {
     id: "il-keshet12",
     name: "קשת 12",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Keshet12_Logo.svg/200px-Keshet12_Logo.svg.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/Keshet%2012.png",
     genre: ["כללי"],
     streams: [
       {
@@ -56,7 +56,7 @@ const CHANNELS = [
   {
     id: "il-reshet13",
     name: "רשת 13",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Reshet_13_logo.svg/200px-Reshet_13_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/Reshet%2013.jpg",
     genre: ["כללי"],
     streams: [
       { url: "https://d2xg1g9o5vns8m.cloudfront.net/out/v1/0855d703f7d5436fae6a9c7ce8ca5075/index.m3u8", label: "רשת 13 – Live HD", quality: "HD" },
@@ -102,7 +102,7 @@ const CHANNELS = [
   {
     id: "il-big-brother",
     name: "האח הגדול 🏠 13+",
-    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/1/17/Reshet13Logo2022.svg/200px-Reshet13Logo2022.svg.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/Big%20Brother.png",
     genre: ["בידור", "ריאליטי"],
     streams: [
       {
@@ -150,7 +150,7 @@ const CHANNELS = [
   {
     id: "il-hidabroot",
     name: "הידברות",
-    logo: "https://i.imgur.com/CTH4Hu2.png",
+    logo: "https://www.hidabroot.org/images/hidabroot-logo.png",
     genre: ["דתי"],
     streams: [
       {
@@ -210,7 +210,7 @@ const CHANNELS = [
   {
     id: "il-i24-heb",
     name: "i24 NEWS עברית",
-    logo: "https://www.i24news.tv/images/favicon.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/i24news.jpg",
     genre: ["חדשות"],
     streams: [], // נטען דינמית מ-GuruTV
     placeholder: false,
@@ -218,7 +218,7 @@ const CHANNELS = [
   {
     id: "il-i24-eng",
     name: "i24 NEWS English",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/LOGO_i24NEWS.png/200px-LOGO_i24NEWS.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/i24news.jpg",
     genre: ["חדשות"],
     streams: [],
     placeholder: true, // חסום — Brightcove DRM

@@ -1,6 +1,6 @@
 {
   "name": "stremio-israeli-channels",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Stremio addon for live Israeli TV channels (GuruTv.online)",
   "main": "index.js",
   "engines": {
