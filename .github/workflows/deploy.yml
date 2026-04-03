@@ -1,28 +1,18 @@
-name: 🚀 Auto Deploy to Vercel
+name: 🔢 Auto Bump Version
 
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "**.md"
-      - "bump-version.js"
-      - "ver.js"
-      - "check*.js"
-      - "test*.js"
-      - "find*.js"
-      - "get-*.js"
-      - "fetch-*.js"
-  workflow_dispatch:
+    paths:
+      - "src/**"
+      - "api/**"
+      - "index.js"
 
 jobs:
-  # ── שלב 1: העלה גרסה patch ─────────────────────────────────────────
   bump:
-    name: 🔢 Bump Version
+    name: Bump patch version
     runs-on: ubuntu-latest
-    # דלג אם ה-commit הוא העלאת גרסה (כדי למנוע לולאה)
     if: "!contains(github.event.head_commit.message, '[skip-bump]')"
-    outputs:
-      new_version: ${{ steps.bump.outputs.version }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,45 +22,13 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Bump patch version
-        id: bump
-        run: |
-          node bump-version.js
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "New version: $VERSION"
+      - name: Bump version
+        run: node bump-version.js
 
-      - name: Commit version bump
+      - name: Push version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add package.json
-          git commit -m "chore: bump to v${{ steps.bump.outputs.version }} [skip-bump]" || echo "Nothing to commit"
+          git diff --staged --quiet || git commit -m "chore: auto bump version [skip-bump]"
           git push
-
-  # ── שלב 2: Deploy ל-Vercel ──────────────────────────────────────────
-  deploy:
-    name: 🌐 Deploy to Vercel
-    runs-on: ubuntu-latest
-    needs: bump
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - run: npm ci
-
-      - name: Deploy to Vercel
-        run: |
-          npm install -g vercel@latest
-          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
