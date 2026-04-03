@@ -1,6 +1,6 @@
 {
   "name": "stremio-israeli-channels",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Stremio addon for live Israeli TV channels (GuruTv.online)",
   "main": "index.js",
   "engines": {
@@ -18,7 +18,15 @@
   "devDependencies": {
     "nodemon": "^3.1.0"
   },
-  "keywords": ["stremio", "addon", "israel", "iptv", "tv", "live", "hebrew"],
+  "keywords": [
+    "stremio",
+    "addon",
+    "israel",
+    "iptv",
+    "tv",
+    "live",
+    "hebrew"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
