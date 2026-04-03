@@ -1,7 +1,8 @@
 # 🇮🇱 Stremio Israeli Channels Addon
 
-> צפו בערוצי טלוויזיה ישראלים בשידור חי ישירות ב-Stremio
 
+> צפו בערוצי טלוויזיה ישראלים בשידור חי ישירות ב-Stremio
+פעיל רק למלחמה 
 [![Deploy](https://github.com/YOUR_USERNAME/stremio-israeli-channels/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR_USERNAME/stremio-israeli-channels/actions/workflows/deploy.yml)
 ![Version](https://img.shields.io/github/package-json/v/YOUR_USERNAME/stremio-israeli-channels)
 ![License](https://img.shields.io/badge/license-MIT-blue)
