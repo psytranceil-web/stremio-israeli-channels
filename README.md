@@ -48,18 +48,6 @@ stremio://localhost:7000/manifest.json
 
 ---
 
-## ➕ הוספת ערוצים מ-GuruTv.online
-
-### שלב 1 – השג את ה-m3u8 URL
-1. פתח [gurutv.online](https://gurutv.online) בדפדפן
-2. לחץ **F12** → לשונית **Network**
-3. בשדה הסינון הקלד: **m3u8**
-4. לחץ Play על ערוץ רצוי
-5. קישור `.m3u8` יופיע ברשימה – לחץ עליו ← **Copy link address**
-
-### שלב 2 – הוסף ל-channels.js
-פתח `src/channels.js` ועדכן את הערוץ הרצוי:
-```javascript
 {
   id: "il-keshet12",
   name: "קשת 12",
