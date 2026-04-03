@@ -184,7 +184,7 @@ const CHANNELS = [
   {
     id: "il-kan12",
     name: "כאן 12",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Keshet12_2018.svg/200px-Keshet12_2018.svg.png",
+    logo: "https://raw.githubusercontent.com/RokuIL/Live-From-Israel/master/Logos/Keshet%2012.png",
     genre: ["כללי"],
     streams: [],
     placeholder: true,
@@ -192,7 +192,7 @@ const CHANNELS = [
   {
     id: "il-now14",
     name: "ערוץ 14",
-    logo: "https://upload.wikimedia.org/wikipedia/he/thumb/d/d4/Channel_14_Israel_logo.svg/200px-Channel_14_Israel_logo.svg.png",
+    logo: "https://www.c14.co.il/favicon.ico",
     genre: ["חדשות", "כללי"],
     streams: [
       {
